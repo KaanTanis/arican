@@ -42,7 +42,9 @@
     <!--================= header ================-->
     <header class="main-header">
         <!-- logo -->
-        <a class="logo-holder" href="/"><img src="/images/logo.png" alt=""></a>
+        <a class="logo-holder" href="/">
+            <img height="50" src="{{ Storage::url($settings->_get('logo')) }}" alt="">
+        </a>
         <!-- logo end -->
         <!-- share button end-->
         <!-- mobile nav -->

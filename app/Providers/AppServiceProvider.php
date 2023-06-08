@@ -7,6 +7,7 @@ use Filament\Facades\Filament;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Spatie\CpuLoadHealthCheck\CpuLoadCheck;
 use Spatie\Health\Checks\Checks\CacheCheck;
@@ -91,6 +92,9 @@ class AppServiceProvider extends ServiceProvider
             ], true);
         });
 
+        if (config('app.env') !== 'local') {
+            URL::forceScheme('https');
+        }
 
         try {
             view()->share('settings', Post::query()->where('id', 2)->first());
