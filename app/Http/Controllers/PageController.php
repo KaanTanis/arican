@@ -45,4 +45,10 @@ class PageController extends Controller
 
         return view('page', compact('data'));
     }
+
+    public function home()
+    {
+        $sliders = Post::query()->where('type', 'slider')->get();
+        return \view('home', compact('sliders'));
+    }
 }

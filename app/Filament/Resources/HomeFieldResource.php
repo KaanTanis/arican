@@ -52,9 +52,6 @@ class HomeFieldResource extends Resource
                             ->label(__('Hakkımızda Başlık'))
                             ->required(fn() => $lang == 'tr'),
 
-                        Forms\Components\TextInput::make('fields.about_big_title.' . $lang)
-                            ->label(__('Hakkımızda Büyük Başlık')),
-
                         Forms\Components\RichEditor::make('fields.about_content.' . $lang)
                             ->label(__('Hakkımızda İçerik')),
 
@@ -92,11 +89,9 @@ class HomeFieldResource extends Resource
 
         $untranslatableFields = [
             Cropper::make('fields.about_bg')
-                ->imageCropAspectRatio('9:14')
-                ->modalSize('xl')
+                ->imageCropAspectRatio('10:14')
+                ->modalSize('md')
                 ->label(__('Ana Sayfa Hakkımızda Görseli')),
-
-            IconPicker::make('test')
         ];
 
         $allFields = [
